@@ -12,8 +12,8 @@ interface SidebarComponentProps  {
   userName: string;
   type?: "admin" |"student";
 }
-export type { SidebarProps };
-export default function Sidebar() {
+export type { SidebarComponentProps };
+export default function Sidebar({userName, type}: SidebarComponentProps) {
   return (
     <Stack
       align="stretch"
@@ -24,7 +24,7 @@ export default function Sidebar() {
       {/* Menu / เมนู*/}
       <Box>
         <NavLink
-          color="cyan"
+          color=""
           label="Home"
           component={RouterNavLink}
           to="/"
@@ -40,10 +40,29 @@ export default function Sidebar() {
         {/* <Text component={RouterNavLink} to="/">
           Test
         </Text> */}
+      
+
+     
       </Box>
       {/* แสดงผู้ใช้งาน */}
       <Box p={10}>
-        <Text>chanadda</Text>
+        {/* <Text>chanadda</Text> */}
+        <Group>
+         <Indicator inline size={14} offset={4} position="bottom-end" color="green" withBorder>
+            <Avatar
+              radius="xl"
+              src="/MELISSAPIC.jpg"
+      
+            />
+          </Indicator>
+          <Stack gap={0}>
+            <Text size="sm" fw={500}>
+              User: Yuchan :  {type === "admin" ? "Admin" : "Student"}
+            </Text>
+        
+          </Stack>
+        </Group>
+     
       </Box>
     </Stack>
   );
