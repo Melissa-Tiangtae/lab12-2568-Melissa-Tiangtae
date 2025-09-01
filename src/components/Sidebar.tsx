@@ -57,7 +57,7 @@ export default function Sidebar({userName, type}: SidebarComponentProps) {
           </Indicator>
           <Stack gap={0}>
             <Text size="sm" fw={500}>
-              User: Yuchan :  {type === "admin" ? "Admin" : "Student"}
+              User: {userName} :  {type === "admin" ? "Admin" : "Student"}
             </Text>
         
           </Stack>
